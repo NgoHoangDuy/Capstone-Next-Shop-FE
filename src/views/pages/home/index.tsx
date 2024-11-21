@@ -261,7 +261,7 @@ const HomePage: NextPage<TProps> = (props) => {
   return (
     <>
       {loading && <Spinner />}
-      
+      <ChatBotAI />
       <Box
         sx={{
           height: '100%',
