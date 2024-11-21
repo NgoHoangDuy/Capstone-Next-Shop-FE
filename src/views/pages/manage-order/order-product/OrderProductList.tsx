@@ -30,7 +30,7 @@ import MoreButton from 'src/views/pages/manage-order/order-product/components/Mo
 // ** Others
 import toast from 'react-hot-toast'
 import { OBJECT_TYPE_ERROR_ROLE } from 'src/configs/error'
-import { formatFilter } from 'src/utils'
+import { formatFilter, formatNumberToLocal } from 'src/utils'
 import { hexToRGBA } from 'src/utils/hex-to-rgba'
 
 // ** Hooks
@@ -220,7 +220,7 @@ const OrderProductListPage: NextPage<TProps> = () => {
       renderCell: params => {
         const { row } = params
 
-        return <Typography>{row.totalPrice}</Typography>
+        return <Typography>{formatNumberToLocal(row.totalPrice) } VNĐ</Typography>
       }
     },
     {

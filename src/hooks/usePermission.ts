@@ -36,7 +36,7 @@ export const usePermission = (key: string,actions: TActions[]) => {
     useEffect(() => {
         const mapPermission = getObjectValue(PERMISSIONS, key)
         actions.forEach((mode) => {
-            if(userPermission?.includes(PERMISSIONS.ADMIN)) {
+            if(userPermission?.includes(PERMISSIONS.ADMIN) || userPermission?.includes(PERMISSIONS.DASHBOARD)) {
                 defaultValues[mode] = true
             }else if(mapPermission[mode] && userPermission?.includes(mapPermission[mode])) {
                 defaultValues[mode] = true

@@ -38,7 +38,7 @@ import { useDispatch } from 'react-redux'
 import { updateOrderProductAsync } from 'src/stores/order-product/actions'
 
 // ** Others
-import { stringToSlug } from 'src/utils'
+import { formatNumberToLocal, stringToSlug } from 'src/utils'
 
 
 interface TCreateEditProduct {
@@ -46,19 +46,26 @@ interface TCreateEditProduct {
   onClose: () => void
   idOrder?: string
 }
-
+interface TItem {
+  _id: string,
+  name: string,
+  amount: number,
+  image: string,
+  price: number,
+  discount: number,
+}
 type TDefaultValue = {
   fullName: string,
   address: string,
   city: string,
-  phone: ""
+  phone: "",
 }
 
 const EditOrderProduct = (props: TCreateEditProduct) => {
   // State
   const [loading, setLoading] = useState(false)
   const [optionCities, setOptionCities] = useState<{ label: string; value: string }[]>([])
-
+  const [orderItems, setOrderItems] = useState<TItem[]>([])
   // ** Props
   const { open, onClose, idOrder } = props
 
@@ -80,8 +87,9 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
     fullName: '',
     address: '',
     city: '',
-    phone: ""
+    phone: "",
   }
+
 
   const {
     handleSubmit,
@@ -101,7 +109,7 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
   const onSubmit = (data: any) => {
     if (!Object.keys(errors).length) {
       // update
-      if(idOrder) {
+      if (idOrder) {
         dispatch(
           updateOrderProductAsync({
             id: idOrder,
@@ -123,13 +131,16 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
     await getDetailsOrderProduct(id)
       .then(res => {
         const data = res.data
+
         if (data) {
           reset({
             fullName: data?.shippingAddress?.fullName,
             phone: data?.shippingAddress?.phone,
             city: data?.shippingAddress?.city,
-            address: data?.shippingAddress?.address,
+            address: data?.shippingAddress?.address
           })
+          // Set order items from the response
+          setOrderItems(data?.orderItems || [])
         }
         setLoading(false)
       })
@@ -137,7 +148,6 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
         setLoading(false)
       })
   }
-
   const fetchAllCities = async () => {
     setLoading(true)
     await getAllCities({ params: { limit: -1, page: -1 } })
@@ -165,7 +175,7 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
   }, [open, idOrder])
 
   useEffect(() => {
-    if(open) {
+    if (open) {
       fetchAllCities()
     }
   }, [open])
@@ -183,7 +193,7 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
           minWidth={{ md: '40px', xs: '80vw' }}
           maxWidth={{ md: '40vw', xs: '80vw' }}
         >
-          <Box sx={{ display: 'flex', justifyContent: 'center', position: 'relative', paddingBottom: '20px' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', position: 'relative', paddingBottom: '20px'}}>
             <Typography variant='h4' sx={{ fontWeight: 600 }}>
               {' '}
               {t('Edit_order_product')}
@@ -227,7 +237,7 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
                           render={({ field: { onChange, onBlur, value } }) => (
                             <CustomTextField
                               required
-                            
+
                               fullWidth
                               label={t('Address')}
                               onChange={onChange}
@@ -257,7 +267,7 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
                                 inputMode: 'numeric',
                                 pattern: '[0-9]*',
                                 minLength: 8
-                              }}                       
+                              }}
                               onBlur={onBlur}
                               value={value}
                               placeholder={t('Enter_phone')}
@@ -309,6 +319,47 @@ const EditOrderProduct = (props: TCreateEditProduct) => {
                             </Box>
                           )}
                         />
+                      </Grid>
+
+                      <Grid item md={12} xs={12}>
+                        <Typography variant='h6' sx={{ mb: 2 }}>
+                          {t('Order_Items')}
+                        </Typography>
+                        <Box sx={{ maxHeight: '300px', overflowY: 'auto' }}>
+                          {orderItems.map((item, index) => (
+                            <Box
+                              key={item._id}
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                mb: 2,
+                                p: 2,
+                                borderRadius: 1,
+                                backgroundColor: theme.palette.background.default
+                              }}
+                            >
+                              <img
+                                src={item.image}
+                                alt={item.name}
+                                style={{ width: '50px', height: '50px', objectFit: 'cover', marginRight: '16px' }}
+                              />
+                              <Box sx={{ flexGrow: 1 }}>
+                                <Typography variant='body1'>{item.name}</Typography>
+                                <Typography variant='body2' color='text.secondary'>
+                                  {t('Quantity')}: {item.amount}
+                                </Typography>
+                                <Typography variant='body2' color='text.secondary'>
+                                  {t('Price')}: {formatNumberToLocal(item.price)} VNĐ
+                                </Typography>
+                                {item.discount > 0 && (
+                                  <Typography variant='body2' color='error'>
+                                    {t('Discount')}: {item.discount}%
+                                  </Typography>
+                                )}
+                              </Box>
+                            </Box>
+                          ))}
+                        </Box>
                       </Grid>
                     </Grid>
                   </Box>
