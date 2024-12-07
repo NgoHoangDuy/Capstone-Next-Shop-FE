@@ -51,27 +51,26 @@ Home.authGuard = false
 Home.title = "Danh sách sản phẩm của cửa hàng NHD Shop"
 
 export async function getServerSideProps() {
-  const limit = 12
+  const limit = 9
   const page = 1
   const order = "createdAt desc"
   try {
-    const typeAllProducts ={'label': 'Tất cả sản phẩm', 'value': ''}
-    const productTypes: TOptions[] = [typeAllProducts]
+    const productTypes: TOptions[] = [{'label': 'Tất cả sản phẩm', 'value': ''}]
     await getAllProductTypes({ params: { limit: -1, page: -1 } })
       .then(res => {
         const data = res?.data.productTypes
         if (data) {
           data?.map((item: { name: string; _id: string }) => {
-            productTypes?.push({ label: item.name, value: item._id })
+            productTypes.push({ label: item.name, value: item._id })
           })
         }
       })
     const res = await getAllProductsPublic(
-      { params: { limit: limit, page: page, order, productType: productTypes?.[0]?.value } }
+      { params: { limit: limit, page: page, order, productType: '' } }
     )
 
     const data = res?.data
-    
+
     return {
       props: {
         products: data?.products,
@@ -81,12 +80,11 @@ export async function getServerSideProps() {
           limit,
           page,
           order,
-          productType: productTypes?.[0]?.value
+          productType: ''
         }
       }
     }
   } catch (error) {
-    
     return {
       props: {
         products: [],

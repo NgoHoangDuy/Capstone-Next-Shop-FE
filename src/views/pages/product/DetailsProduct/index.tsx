@@ -61,6 +61,7 @@ import { OBJECT_TYPE_ERROR_REVIEW } from 'src/configs/error'
 
 import { TCommentItemProduct } from 'src/types/comment'
 import { createCommentAsync } from 'src/stores/comments/actions'
+import { getDetailsProductPublicBySlug } from 'src/services/product'
 
 type TProps = {
   productData:TProduct
@@ -142,7 +143,20 @@ const DetailsProductPage: NextPage<TProps> = ({productData, productsRelated}) =>
         setLoading(false)
       })
   }
-
+  const fetchGetDetailsProduct = async (slug: string) => {
+    setLoading(true)
+    await getDetailsProductPublicBySlug(slug, true)
+      .then(async response => {
+        setLoading(false)
+        const data = response?.data
+        if (data) {
+          setDataProduct(data)
+        }
+      })
+      .catch(() => {
+        setLoading(false)
+      })
+  }
   const fetchListCommentProduct = async (productId:string) => {
     setLoading(true)
     await getAllCommentsPublic({ params: { limit: -1, page: -1, order: "createdAt desc", isPublic: true, productId: productId} })
@@ -370,6 +384,7 @@ const DetailsProductPage: NextPage<TProps> = ({productData, productsRelated}) =>
     if (dataProduct._id) {
       fetchListCommentProduct(dataProduct._id)
       fetchGetAllListReviewByProduct(dataProduct._id)
+      //fetchGetDetailsProduct(dataProduct._id)
     }
   }, [dataProduct._id])
 

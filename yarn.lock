@@ -62,6 +62,13 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@babel/runtime@^7.26.0":
+  version "7.26.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.26.0.tgz#8600c2f595f277c60815256418b85356a65173c1"
+  integrity sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@babel/types@^7.22.15":
   version "7.23.5"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.23.5.tgz#48d730a00c95109fa4393352705954d74fb5b602"
@@ -713,6 +720,13 @@
   version "5.14.20"
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.14.20.tgz#c9ce5ccfcc7972d3bc1623440e041e0a01386626"
   integrity sha512-fXoGe8VOrIYajqALysFuyal1q1YmBARqJ3tmnWYDVl0scu8f6h6tZQbS2K8BY28QwkWNGyv4WRfuUkzN5HR3Ow==
+
+"@mui/icons-material@^6.1.9":
+  version "6.1.9"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-6.1.9.tgz#68b1003d3e29db4f5d5e5f46a4333f34762aeeeb"
+  integrity sha512-AzlhIT51rdjkZ/EcUV2dbhNkNSUHIqCnNoUxodpiTw8buyAUBd+qnxg5OBSuPpun/ZEdSSB8Q7Uyh6zqjiMsEQ==
+  dependencies:
+    "@babel/runtime" "^7.26.0"
 
 "@mui/material@^5.14.20":
   version "5.14.20"
@@ -4255,6 +4269,11 @@ sweetalert2@^11.10.5:
   version "11.10.5"
   resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.10.5.tgz#ff01f45b40ad678ca1f0c2e6c98800d79a74c49f"
   integrity sha512-q9eE3EKhMcpIDU/Xcz7z5lk8axCGkgxwK47gXGrrfncnBJWxHPPHnBVAjfsVXcTt8Yi8U6HNEcBRSu+qGeyFdA==
+
+swiper@^11.1.15:
+  version "11.1.15"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.1.15.tgz#e2258c8d38282e2f115ca463d6e8c5b84cdcf1ca"
+  integrity sha512-IzWeU34WwC7gbhjKsjkImTuCRf+lRbO6cnxMGs88iVNKDwV+xQpBCJxZ4bNH6gSrIbbyVJ1kuGzo3JTtz//CBw==
 
 synckit@^0.8.5:
   version "0.8.6"

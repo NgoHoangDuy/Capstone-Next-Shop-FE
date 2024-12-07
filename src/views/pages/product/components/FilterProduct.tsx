@@ -85,11 +85,12 @@ const FilterProduct = (props: TFilterProduct) => {
           </RadioGroup>
         </FormControl>
       </Box>
-      <Box sx={{ mt: 2 ,maxHeight: '1960px', overflow: 'auto', scrollbarWidth:'none'}} >
-        <FormControl>
-          <FormLabel sx={{ color: theme.palette.primary.main, fontWeight: 600 }} id='radio-group-location'>
+      <FormLabel sx={{ color: theme.palette.primary.main, fontWeight: 600 }} id='radio-group-location'>
             {t('Location')}
           </FormLabel >
+      <Box sx={{ mt: 2 ,maxHeight: '1310px', overflow: 'auto', scrollbarWidth:'none'}} >
+        <FormControl>
+          
           <RadioGroup
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeFilter(e.target.value, 'location')}
             aria-labelledby='radio-group-locations'

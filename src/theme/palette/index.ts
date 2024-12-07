@@ -5,9 +5,9 @@ import { Skin } from 'src/types/layouts'
 const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
   // ** Vars
   const whiteColor = '#FFF'
-  const lightColor = '47, 43, 61'
-  const darkColor = '208, 212, 241'
-  const darkPaperBgColor = '#2F3349'
+  const lightColor = '28, 28, 29'
+  const darkColor = '242, 244, 247'
+  const darkPaperBgColor = '#252728'
   const mainColor = mode === 'light' ? lightColor : darkColor
 
   const defaultBgColor = () => {
@@ -17,9 +17,11 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       return darkPaperBgColor
     } else if (mode === 'light') {
       return '#F8F7FA'
-    } else return '#25293C'
+    } else return '#252728'
   }
 
+
+  
   return {
     customColors: {
       dark: darkColor,
@@ -27,6 +29,7 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       light: lightColor,
       lightPaperBg: whiteColor,
       darkPaperBg: darkPaperBgColor,
+      constrastColor: mode === 'light' ? '#080809' : '#e2e5e9',
       bodyBg: mode === 'light' ? '#F8F7FA' : '#25293C', // Same as palette.background.default but doesn't consider bordered skin
       trackBg: mode === 'light' ? '#F1F0F2' : '#363B54',
       avatarBg: mode === 'light' ? '#DBDADE' : '#4A5072',
@@ -40,8 +43,8 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
     },
     primary: {
       light: '#8479F2',
-      main: '#7367F0',
-      dark: '#655BD3',
+      main: '#0866ff',
+      dark: '#00008B',
       contrastText: whiteColor
     },
     secondary: {
@@ -76,7 +79,7 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
     },
     grey: {
       50: '#FAFAFA',
-      100: '#F5F5F5',
+      100: '#f2f4f7',
       200: '#EEEEEE',
       300: '#E0E0E0',
       400: '#BDBDBD',

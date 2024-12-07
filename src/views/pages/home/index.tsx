@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 // ** Mui
 import { Box, Grid, Typography, useTheme, Tab, Tabs, TabsProps } from '@mui/material'
 
+
 // ** Redux
 
 // ** Components
@@ -17,6 +18,9 @@ import CardProduct from 'src/views/pages/product/components/CardProduct'
 import FilterProduct from 'src/views/pages/product/components/FilterProduct'
 import InputSearch from 'src/components/input-search'
 import NoData from 'src/components/no-data'
+import Footer from 'src/components/footer'
+import HomeSlider from 'src/components/home-slider'
+
 
 // ** Config
 import { PAGE_SIZE_OPTION } from 'src/configs/gridConfig'
@@ -69,7 +73,18 @@ const StyledTabs = styled(Tabs)<TabsProps>(({ theme }) => ({
     borderBottom: 'none'
   }
 }))
-
+// Adjust the FixedHeader to be positioned below the MainHeader
+const FixedHeader = styled(Box)(({ theme }) => ({
+  position: 'fixed',
+  top: '64px', // Adjust this value based on your main header height
+  zIndex: 1100,
+  width: '100%',
+  paddingTop: '10px',
+  paddingBottom: '10px',
+  marginBottom: '10px',
+  backgroundColor:theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[900],
+  
+}))
 const HomePage: NextPage<TProps> = (props) => {
   // ** Translate
   const { t } = useTranslation()
@@ -268,6 +283,7 @@ const HomePage: NextPage<TProps> = (props) => {
           width: '100%'
         }}
       >
+        <FixedHeader>
         <StyledTabs value={productTypeSelected} onChange={handleChange} aria-label='wrapped label tabs example'>
           {optionTypes.map(opt => {
             return <Tab key={opt.value} value={opt.value} label={opt.label} />
@@ -301,12 +317,20 @@ const HomePage: NextPage<TProps> = (props) => {
                   {
                     label: t("Sort_high_like"),
                     value: "totalLikes desc"
+                  },
+                  {
+                    label: t("Sort_price_low_to_high"),
+                    value: "price asc"
+                  },
+                  {
+                    label: t("Sort_price_high_to_low"),
+                    value: "price desc"
                   }
                 ]}
                 placeholder={t('Sort_by')}
               />
             </Box>
-            <Box sx={{ width: '300px' }}>
+            <Box sx={{ width: '300px' ,marginRight: '50px'}}>
               <InputSearch
                 placeholder={t('Search_name_product')}
                 value={searchBy}
@@ -320,7 +344,8 @@ const HomePage: NextPage<TProps> = (props) => {
             </Box>
           </Box>
         </Box>
-
+        </FixedHeader>
+                <HomeSlider /> {/* Add the slider here, before the tabs */}
         <Box
           sx={{
             height: '100%',
@@ -405,7 +430,7 @@ const HomePage: NextPage<TProps> = (props) => {
           </Grid>
         </Box>
 
-
+        <Footer />
       </Box>
     </>
   )

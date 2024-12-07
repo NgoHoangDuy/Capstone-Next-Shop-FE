@@ -11,6 +11,7 @@ declare module '@mui/material/styles' {
       lightPaperBg: string
       tableHeaderBg: string
       borderColor: string
+      constrastColor: string
     }
   }
 

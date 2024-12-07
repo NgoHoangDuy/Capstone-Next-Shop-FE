@@ -52,14 +52,14 @@ const MyProductPage: NextPage<TProps> = () => {
   // State
   const [loading, setLoading] = useState(false)
   const [searchBy, setSearchBy] = useState('')
-  const [tabActive, setTabActive] = useState(TYPE_VALUE.viewed)
+  const [tabActive, setTabActive] = useState(TYPE_VALUE.liked)
   const [pageSize, setPageSize] = useState(PAGE_SIZE_OPTION[0])
   const [page, setPage] = useState(1)
   const [optionTypes, setOptionTypes] = useState([
-    {
-      label: t('Product_viewed'),
-      value: TYPE_VALUE.viewed
-    },
+    // {
+    //   label: t('Product_viewed'),
+    //   value: TYPE_VALUE.viewed
+    // },
     {
       label: t('Product_liked'),
       value: TYPE_VALUE.liked

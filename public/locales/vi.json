@@ -220,7 +220,6 @@
   "Add_to_cart": "Thêm giỏ hàng",
   "not_review": "Chưa đánh giá",
   "Sold_product": "Đã bán",
-  "Product": "sản phẩm",
   "Still": "Còn",
   "product_in_stock": "sản phẩm trong kho",
   "Description_product": "Mô tả sản phẩm",
@@ -260,6 +259,7 @@
   "Warning_order_product": "Cảnh báo sản phẩm mua hàng đang gặp vấn đề",
   "Order_product_success": "Đặt hàng thành công",
   "My_order": "Đơn hàng của tôi",
+  "Order_Items": "Danh sách sản phẩm",
   "View_details": "Xem chi tiết",
   "Buy_again": "Mua lại",
   "All": "Tất cả",
@@ -321,6 +321,8 @@
   "No_sell_product": "Chưa bán sản phẩm",
   "Sort_new_create": "Sắp xếp mới nhất",
   "Sort_best_sold": "Bán chạy nhất",
+  "Sort_price_low_to_high": "Giá từ thấp đến cao",
+  "Sort_price_high_to_low": "Giá từ cao đến thấp",
   "Sort_by": "Sắp xếp theo",
   "Comment": "Bình luận",
   "Title_delete_comment": "Xác nhận xóa bình luận",
@@ -351,5 +353,18 @@
   "Payment_vn_pay_failed": "Thanh toán VNPay thất bại",
   "ratings": "đánh giá",
   "comments": "bình luận",
-  "Product_details": "Chi tiết sản phẩm"
+  "Product_details": "Chi tiết sản phẩm",
+  
+  "4.5_and_up": "Từ 4.5 trở lên",
+  "4_and_up": "Từ 4 trở lên",
+  "3.5_and_up": "Từ 3.5 trở lên",
+  "3_and_up": "Từ 3 trở lên",
+  "2.5_and_up": "Từ 2.5 trở lên",
+  "2_and_up": "Từ 2 trở lên",
+  "1_and_up": "Từ 1 trở lên",
+  "0.5_and_up": "Từ 0.5 trở lên",
+
+  "Quantity": "SL",
+
+  "Continue_with_Google": "Tiếp tục với Google"
 }

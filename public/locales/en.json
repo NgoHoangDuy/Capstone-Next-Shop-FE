@@ -156,7 +156,7 @@
   "Price_delivery_type": "Delivery type price",
   "Enter_price_delivery_type": "Enter price",
   "least_1000_in_price": "Price must be at least 1000",
-  "Type_product": "Product type",
+ 
 
   "Create_product_type_success": "Product type created successfully",
   "Update_product_type_success": "Product type updated successfully",
@@ -216,8 +216,7 @@
   "Buy_now": "Buy now",
   "Add_to_cart": "Add to cart",
   "not_review": "No reviews yet",
-  "Sold_product": "Sold product",
-  "Product": "Product",
+  "Sold_product": "Sold product",  
   "Still": "Still",
   "product_in_stock": "Products in stock",
   "Description_product": "Product description",
@@ -257,6 +256,7 @@
   "Warning_order_product": "Warning: Order product is having problems",
   "Order_product_success": "Order successfully placed",
   "My_order": "My orders",
+  "Order_Items": "Order items",
   "View_details": "View details",
   "Buy_again": "Buy again",
   "All": "All",
@@ -297,6 +297,8 @@
   "No_sell_product": "No products sold yet",
   "Sort_new_create": "Sort by newest",
   "Sort_best_sold": "Sort by best-selling",
+  "Sort_price_low_to_high": "Price low to high",
+  "Sort_price_high_to_low": "Price high to low to",
   "Sort_by": "Sort by",
   "Comment": "Comment",
   "Title_delete_comment": "Confirm delete comment",
@@ -327,5 +329,16 @@
   "Payment_vn_pay_failed": "Payment VNPay failed",
   "ratings": "ratings",
   "comments": "comments",
-  "Product_details": "Details product"
+  "Product_details": "Details product",
+  "4.5_and_up": "4.5 and up",
+  "4_and_up": "4 and up",
+  "3.5_and_up": "3.5 and up",
+  "3_and_up": "3 and up",
+  "2.5_and_up": "2.5 and up",
+  "2_and_up": "2 and up",
+  "1_and_up": "1 and up",
+  "0.5_and_up": "0.5 and up",
+
+  "Quantity": "SL",
+  "Continue_with_Google": "Continue with Google"
 }

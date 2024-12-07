@@ -28,6 +28,7 @@ import { AuthProvider } from 'src/contexts/AuthContext'
 // ** Global css styles
 import 'src/styles/globals.scss'
 import "react-multi-carousel/lib/styles.css";
+import 'src/styles/swiper-custom.css'
 
 // ** redux
 import { store } from 'src/stores'

@@ -22,20 +22,20 @@ export const FILTER_REVIEW_PRODUCT = () => {
 
     return [
         {
-            label: t("Từ 4.5 trở lên"),
-            value: "4.5"
-        },
-        {
-            label: t("Từ 4 trở lên"),
+            label: t("4_and_up"),
             value: "4"
         },
         {
-            label: t("Từ 3,5 trở lên"),
-            value: "3.5"
+            label: t("3_and_up"),
+            value: "3"
         },
         {
-            label: t("Từ 3 trở lên"),
-            value: "3"
+            label: t("2_and_up"),
+            value: "2"
+        },
+        {
+            label: t("1_and_up"),
+            value: "1"
         },
     ]
 }
