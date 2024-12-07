@@ -260,7 +260,7 @@ const LoginPage: NextPage<TProps> = () => {
                 <Typography variant='body2' component={Link} href={`${ROUTE_CONFIG.FORGOT_PASSWORD}`}>{t('Forgot_password')}?</Typography>
               </Box>
               <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
-                Sign In
+                {t('Sign_In')}
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
                 <Typography>{t('You_have_account')}</Typography>
