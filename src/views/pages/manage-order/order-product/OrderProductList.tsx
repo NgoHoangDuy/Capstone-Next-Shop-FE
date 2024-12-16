@@ -257,12 +257,7 @@ const OrderProductListPage: NextPage<TProps> = () => {
         return (
           <Switch
             checked={!!row.isPaid}
-            onChange={e => {
-              handleUpdateStatusOrder({
-                id: row._id,
-                isPaid: e.target.checked ? 1 : 0
-              })
-            }}
+            
           />
         )
       }

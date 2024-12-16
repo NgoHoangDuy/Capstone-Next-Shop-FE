@@ -4,7 +4,7 @@ import * as React from 'react'
 // ** Next
 import { NextPage } from 'next'
 import Link from 'next/link'
-
+import Image from 'next/image'
 // ** Mui
 import { styled } from '@mui/material/styles'
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
@@ -98,6 +98,10 @@ const HorizontalLayout: NextPage<TProps> = ({ open, toggleDrawer, isHideMenu }) 
             <Icon icon='ic:round-menu' />
           </IconButton>
         )}
+        <Image src={'/NHD_Shop_logo-removebg.png'}
+          alt="Picture of the author"
+          width={70}
+      height={70}/> 
         <Typography
           component='h1'
           variant='h6'
@@ -105,8 +109,9 @@ const HorizontalLayout: NextPage<TProps> = ({ open, toggleDrawer, isHideMenu }) 
           noWrap
           sx={{ flexGrow: 1, fontWeight: '600', cursor: 'pointer' }}
         >
-          <Link style={{ color: 'inherit' }} href={ROUTE_CONFIG.HOME}>
-            NHD
+          
+          <Link style={{ color: 'inherit' }} href={ROUTE_CONFIG.HOME}>            
+      NHD SHOP       
           </Link>
         </Typography>
         <LanguageDropdown />

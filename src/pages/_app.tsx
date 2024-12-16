@@ -125,7 +125,7 @@ export default function App(props: ExtendedAppProps) {
   const keywords = Component.keywords ?? 'Material Design, MUI, ReactJS, Yup, NextJS 14, Typescript, Ngô Hoàng Duy'
 
   const description = Component.description ?? `${themeConfig.templateName} – Khóa luận tốt nghiệp xây đựng dự án website bán hàng`
-  const urlImage = Component.urlImage ?? "/logo.png"
+  const urlImage = Component.urlImage ?? "/NHD_logo.png"
 
   const toastOptions = {
     success: {
@@ -168,7 +168,7 @@ export default function App(props: ExtendedAppProps) {
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={urlImage} />
 
-        <link rel='icon' href='/vercel.svg' />
+        <link rel='icon' href='/NHD_logo.svg' />
       </Head>
 
       <QueryClientProvider client={queryClient}>
