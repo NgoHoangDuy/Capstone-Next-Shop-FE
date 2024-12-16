@@ -43,7 +43,6 @@ import CustomSelect from 'src/components/custom-select'
 import CardSkeleton from 'src/views/pages/product/components/CardSkeleton'
 import ChatBotAI from 'src/components/chat-bot-ai'
 import { useRouter } from 'next/router'
-import FacebookMsg from 'src/components/facebook-chat'
 
 
 interface TOptions {
@@ -277,7 +276,7 @@ const HomePage: NextPage<TProps> = (props) => {
   return (
     <>
       {loading && <Spinner />}
-      <FacebookMsg/>
+      <ChatBotAI />
       <Box
         sx={{
           height: '100%',
@@ -430,7 +429,7 @@ const HomePage: NextPage<TProps> = (props) => {
             </Grid>
           </Grid>
         </Box>
-          
+
         <Footer />
       </Box>
     </>
