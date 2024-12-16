@@ -277,7 +277,7 @@ const HomePage: NextPage<TProps> = (props) => {
   return (
     <>
       {loading && <Spinner />}
-      <ChatBotAI />
+      <FacebookMsg/>
       <Box
         sx={{
           height: '100%',
@@ -430,7 +430,7 @@ const HomePage: NextPage<TProps> = (props) => {
             </Grid>
           </Grid>
         </Box>
-          <FacebookMsg/>
+          
         <Footer />
       </Box>
     </>
